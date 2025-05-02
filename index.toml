@@ -1214,7 +1214,7 @@ hash = "827a998b5471b9e444aff2cf9b5e37c2e1695e93bd80fdfb21b2c1c2b11d48d5"
 
 [[files]]
 file = "defaultconfigs/ftbessentials-server.snbt"
-hash = "b4864f78b6d0646c8dd6f6bbc37d893b5e2681faae72781140c6fb81cd09424d"
+hash = "7a87f311bb4d302f6ad97daf733610a468dbef75908260dccd0da0f3131f526c"
 
 [[files]]
 file = "defaultconfigs/ftblibrary/ftblibrary-client.snbt"
@@ -1698,6 +1698,11 @@ file = "mods/gtocore-0.0.9.jar"
 hash = "3d1c2e811b3bb9d5e36f7be9e002754acda7cfcdad64579af4dedfa5c11e03da"
 
 [[files]]
+file = "mods/imblocker.pw.toml"
+hash = "625665dc0703452bafe22563ceb8b1219d2c1cd091e189ce9bd63cee21a886c1"
+metafile = true
+
+[[files]]
 file = "mods/immediatelyfast.pw.toml"
 hash = "63dd804709c10c01fd15e0d949f446827d2e0f73689aea47a15b362f24f1df82"
 metafile = true
@@ -1929,7 +1934,7 @@ metafile = true
 
 [[files]]
 file = "mods/simple-backups.pw.toml"
-hash = "7ae23612abc6bf86cc256a71972a0b7d11be7042e8f3d8cc833e73796be405d0"
+hash = "9bd1b72d1d4ccd83788b30587300497dc9771c132c7e2cdeb4b725adc67c9103"
 metafile = true
 
 [[files]]
@@ -1995,6 +2000,16 @@ metafile = true
 [[files]]
 file = "mods/when-dungeons-arise.pw.toml"
 hash = "652c08157316155226cdf7be0e3076c5325fd44ade8ed20212f3d24c4fe8dc05"
+metafile = true
+
+[[files]]
+file = "mods/worldedit.pw.toml"
+hash = "bd1dc13316e2aa9b56c89e7e974057f8da8d6bbfe707ba4210109fc612b782e3"
+metafile = true
+
+[[files]]
+file = "mods/worldeditcui-forge.pw.toml"
+hash = "02750acec3b73b203a2441f78ad4749650d4768ab2db9c4083a1c09ee421eb0f"
 metafile = true
 
 [[files]]
