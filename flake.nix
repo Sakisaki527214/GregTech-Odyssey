@@ -16,6 +16,11 @@
         pkgs = nixpkgs.legacyPackages.${system};
         pack = builtins.fromTOML (builtins.readFile ./pack.toml);
         inherit (packwiz2nix.packages.${system}) buildPackwizModpack;
+        packwizCacheConfig = ''
+          export XDG_CACHE_HOME="$TMPDIR/.cache"
+          mkdir -p "$XDG_CACHE_HOME"
+        '';
+
       in {
         devShells.default =
           pkgs.mkShell { packages = with pkgs; [ packwiz yq ]; };
@@ -30,6 +35,7 @@
             buildPhase = ''
               rm -rf config/ftbquests/quests
               cp -r .github/localization/localized_quests config/ftbquests/quests
+              ${packwizCacheConfig}
               packwiz cf export
             '';
             installPhase = ''
@@ -60,6 +66,7 @@
             name = "gregtech-odyssey";
             # packwiz may record file metadata that not gets managed by git
             allowMissingFile = true;
+            preBuild = packwizCacheConfig;
           };
 
           modpack-client = buildPackwizModpack {
@@ -68,6 +75,7 @@
             # packwiz may record file metadata that not gets managed by git
             allowMissingFile = true;
             side = "client";
+            preBuild = packwizCacheConfig;
           };
 
           server = let inherit (self.packages.${system}) forge modpack;
