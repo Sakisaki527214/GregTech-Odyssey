@@ -1,36 +1,117 @@
-name: Sync upstream main → sync
+# .github/workflows/sync-and-merge.yml
+name: Sync Upstream & Merge
 
 on:
-  schedule:
-    - cron:  '0,30 * * * *'
   workflow_dispatch:
+    inputs:
+      upstream_repo:
+        description: '上游仓库 (owner/repo)'
+        required: true
+        default: GregTech-Odyssey/GregTech-Odyssey
+      sync_branch:
+        description: '同步目标分支'
+        required: true
+        default: 'sync'
+  schedule:
+    - cron: '*/30 * * * *'
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  statuses: write
+  
 jobs:
-  sync:
+  sync-and-merge:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout `sync` branch
-        uses: actions/checkout@v3
+      - name: Checkout repository (full history)
+        uses: actions/checkout@v4
         with:
-          ref: sync
+          token: ${{ secrets.PAT_TOKEN }}
+          persist-credentials: false
           fetch-depth: 0
-          persist-credentials: true
+
+      - name: Configure Git credentials
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git
 
       - name: Add upstream remote
         run: |
-          git remote add upstream https://github.com/GregTech-Odyssey/GregTech-Odyssey.git
-      - name: Fetch upstream `main`
-        run: git fetch upstream main
+          git remote add upstream https://github.com/${{ github.event.inputs.upstream_repo }}.git
 
-      - name: Compare commits
-        id: check
+      - name: Fetch upstream changes
+        run: git fetch upstream
+
+      - name: Checkout/Create sync branch
         run: |
-          UPSTREAM=$(git rev-parse upstream/main)
-          LOCAL=$(git rev-parse HEAD)
-          echo "upstream=$UPSTREAM" >> $GITHUB_OUTPUT
-          echo "local=$LOCAL"      >> $GITHUB_OUTPUT
-      - name: Sync if out-of-date
-        if: steps.check.outputs.upstream != steps.check.outputs.local
+          git checkout -B ${{ github.event.inputs.sync_branch }} upstream/main
+
+      - name: Check for new commits
+        id: check_commits
         run: |
-          git reset --hard upstream/main
-          git push origin sync --force
+          if [ "$(git rev-parse upstream/main)" = "$(git rev-parse HEAD)" ]; then
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "no_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Exit if no changes
+        if: steps.check_commits.outputs.no_changes == 'true'
+        run: echo "No new commits to sync; exiting." && exit 0
+
+      - name: Force push sync branch
+        run: git push origin ${{ github.event.inputs.sync_branch }} --force
+
+      - name: Check for existing conflict branches
+        id: check_conflict_branches
+        run: |
+          if [ $(git ls-remote --heads origin "conflict-fix-*" | wc -l) -gt 0 ]; then
+            echo "branch_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "branch_exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Attempt merge to main
+        id: merge_attempt
+        if: steps.check_conflict_branches.outputs.branch_exists == 'false'
+        continue-on-error: true
+        run: |
+          git checkout main
+          if git merge --no-ff sync -m "Sync upstream changes"; then
+            git push origin main
+          else
+            git merge --abort
+            exit 1
+          fi
+
+      # - name: Wait for conflict resolution build
+      #   uses: lewagon/wait-on-check-action@v1.3.4
+      #   if: steps.merge_attempt.outcome == 'failure'
+      #   with:
+      #     ref: refs/heads/conflict-fix-${{ github.run_id }}
+      #     check-name: 'Package'
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #     wait-interval: 10
+
+      - name: Create conflict resolution PR
+        if: steps.check_conflict_branches.outputs.branch_exists == 'false' && steps.merge_attempt.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          conflict_branch="conflict-fix-${{ github.run_id }}"
+          git checkout -b $conflict_branch origin/sync
+          git push origin $conflict_branch
+          curl -X POST \
+            -H "Authorization: token $GH_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/pulls \
+            -d '{
+              "title": "需要解决合并冲突： sync → main",
+              "body": "",
+              "head": "sync",
+              "base": "main",
+              "labels": "conflict-fix"
+            }'
