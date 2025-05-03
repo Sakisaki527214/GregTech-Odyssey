@@ -2,33 +2,35 @@ name: Sync upstream main → sync
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
-  workflow_dispatch: {}
+    - cron:  '0,30 * * * *'
+  workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout sync branch
-        uses: actions/checkout@v4
+      - name: Checkout `sync` branch
+        uses: actions/checkout@v3
         with:
           ref: sync
+          fetch-depth: 0
+          persist-credentials: true
 
-      - name: Check for upstream changes
-        id: check_upstream
+      - name: Add upstream remote
         run: |
-          git fetch https://github.com/GregTech-Odyssey/GregTech-Odyssey.git main
-          UPSTREAM_HASH=$(git rev-parse FETCH_HEAD)
-          LOCAL_HASH=$(git rev-parse HEAD)
-          echo "::set-output name=has_changes::$([ \"$UPSTREAM_HASH\" != \"$LOCAL_HASH\" ] && echo true || echo false)"
+          git remote add upstream https://github.com/GregTech-Odyssey/GregTech-Odyssey.git
+      - name: Fetch upstream `main`
+        run: git fetch upstream main
 
-      - name: Sync forked upstream into sync branch
-        if: ${{ steps.check_upstream.outputs.has_changes == 'true' }}
-        uses: tgymnich/fork-sync@v2.0.10
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          owner: GregTech-Odyssey
-          head: main
-          base: sync
-          auto_approve: true
-          auto_merge: true
+      - name: Compare commits
+        id: check
+        run: |
+          UPSTREAM=$(git rev-parse upstream/main)
+          LOCAL=$(git rev-parse HEAD)
+          echo "upstream=$UPSTREAM" >> $GITHUB_OUTPUT
+          echo "local=$LOCAL"      >> $GITHUB_OUTPUT
+      - name: Sync if out-of-date
+        if: steps.check.outputs.upstream != steps.check.outputs.local
+        run: |
+          git reset --hard upstream/main
+          git push origin sync --force
