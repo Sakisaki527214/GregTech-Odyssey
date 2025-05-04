@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   auto-merge:
-    if: github.actor == 'github-actions'
+    if: github.actor == 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Enable auto-merge
