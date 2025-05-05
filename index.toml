@@ -758,7 +758,7 @@ hash = "aa11d4a4be23f45f66286636f245320d3fccc62143b8e87faf5a2291df43652e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/ev.snbt"
-hash = "694bcbc77034378bc310165bcf16a2983de922cda164c0c7fff1800d1cc29c0a"
+hash = "6c7b562266ad86ff35f3a77644821f18a12804339979ac79261f25b46f63d44b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/food.snbt"
@@ -1550,7 +1550,7 @@ metafile = true
 
 [[files]]
 file = "mods/ex-pattern-provider.pw.toml"
-hash = "bc7910c03d7cdde90c3ac3d277375f0f6c174cb948076e0b46c61f4688d02e6c"
+hash = "e0d5fc7090d303c4176dcf18d7d76012c0a11040848fcb5440bba8fd52fcdfb4"
 metafile = true
 
 [[files]]
@@ -1698,8 +1698,8 @@ file = "mods/gtmthings-1.4.4.jar"
 hash = "71d3bd11b6392a6892e585649b36a3c49d3a89070c289d1d8f23b0d32aeaee91"
 
 [[files]]
-file = "mods/gtocore-0.1.0.jar"
-hash = "57aa4680cfa3819172fb6394f26d83a91e6e2432b3a4e04a8f75c931bb38262a"
+file = "mods/gtocore-0.1.1.jar"
+hash = "f4c0e457f907924c88e85d02f6218be265ccf32670e9592efd8f50b2351bde93"
 
 [[files]]
 file = "mods/guideme.pw.toml"
@@ -1953,7 +1953,7 @@ metafile = true
 
 [[files]]
 file = "mods/sophisticated-core.pw.toml"
-hash = "5865d44a4a9f6d0913d9dbe1220973f8701a3613a64bf92052299a4beba78f27"
+hash = "a7bb27fd3e372a43c3e651f1548bb3a8435d896f928752e0a46c90723941e189"
 metafile = true
 
 [[files]]
