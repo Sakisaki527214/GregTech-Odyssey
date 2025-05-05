@@ -72,15 +72,25 @@ jobs:
       - name: Check for existing conflict branches
         id: check_conflict_branches
         run: |
-          if [ $(git ls-remote --heads origin "conflict-fix-*" | wc -l) -gt 0 ]; then
-            echo "branch_exists=true" >> $GITHUB_OUTPUT
+          # 检查是否存在冲突分支，并记录第一个找到的分支名
+          conflict_branch=$(git ls-remote --heads origin "conflict-fix-*" | awk '{print $2}' | sed 's/refs\/heads\///' | sort | head -n1)
+          if [ -n "$conflict_branch" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "branch_name=$conflict_branch" >> $GITHUB_OUTPUT
           else
-            echo "branch_exists=false" >> $GITHUB_OUTPUT
+            echo "exists=false" >> $GITHUB_OUTPUT
           fi
+
+      - name: Force update conflict branch
+        if: steps.check_conflict_branches.outputs.branch_exists == 'true'
+        run: |
+          target_branch="${{ steps.check_conflict_branches.outputs.target_branch }}"
+          git checkout -B "${{ steps.check_conflict.outputs.branch_name }}" origin/sync
+          git push origin "${{ steps.check_conflict.outputs.branch_name }}" --force
 
       - name: Attempt merge to main
         id: merge_attempt
-        if: steps.check_conflict_branches.outputs.branch_exists == 'false'
+        if: steps.check_conflict.outputs.exists == 'false'
         continue-on-error: true
         run: |
           git checkout main
@@ -91,17 +101,8 @@ jobs:
             exit 1
           fi
 
-      # - name: Wait for conflict resolution build
-      #   uses: lewagon/wait-on-check-action@v1.3.4
-      #   if: steps.merge_attempt.outcome == 'failure'
-      #   with:
-      #     ref: refs/heads/conflict-fix-${{ github.run_id }}
-      #     check-name: 'Package'
-      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
-      #     wait-interval: 10
-
       - name: Create conflict resolution PR
-        if: steps.check_conflict_branches.outputs.branch_exists == 'false' && steps.merge_attempt.outcome == 'failure'
+        if: steps.check_conflict.outputs.exists == 'false' && steps.merge_attempt.outcome == 'failure'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
