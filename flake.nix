@@ -1,11 +1,11 @@
 {
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url    = "github:nixos/nixpkgs/nixos-unstable";
     packwiz2nix = {
       url = "github:snylonue/packwiz2nix";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows   = "nixpkgs";
         flake-utils.follows = "flake-utils";
       };
     };
@@ -17,28 +17,30 @@
         pack = builtins.fromTOML (builtins.readFile ./pack.toml);
         inherit (packwiz2nix.packages.${system}) buildPackwizModpack;
         packwizCacheConfig = ''
-          export XDG_CACHE_HOME="$TMPDIR/.cache"
+          export HOME=$PWD
+          export XDG_CACHE_HOME="$HOME/.cache"
           mkdir -p "$XDG_CACHE_HOME"
         '';
-
       in {
-        devShells.default =
-          pkgs.mkShell { packages = with pkgs; [ packwiz yq ]; };
-
         packages = {
           curseforge = pkgs.stdenvNoCC.mkDerivation {
             inherit (pack) version;
-            name = "GregTech-Odyssey";
-            src = ./.;
-            buildInputs = with pkgs; [ packwiz ];
-            phases = [ "unpackPhase" "buildPhase" "installPhase" ];
+            name    = "GregTech-Odyssey";
+            src     = ./.;
+            buildInputs = [ pkgs.packwiz ];
+
+            preBuild = packwizCacheConfig;
+
+            phases = [ "unpackPhase" "preBuild" "buildPhase" "installPhase" ];
+
             buildPhase = ''
               rm -rf config/ftbquests/quests
               cp -r .github/localization/quests config/ftbquests/quests
               packwiz cf export
             '';
+
             installPhase = ''
-              mkdir $out
+              mkdir -p $out
               mv "${pack.name}-${pack.version}.zip" $out
             '';
           };
@@ -67,7 +69,7 @@
             allowMissingFile = true;
             preBuild = packwizCacheConfig;
           };
-
+          
           modpack-client = buildPackwizModpack {
             src = ./.;
             name = "gregtech-odyssey";
