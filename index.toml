@@ -749,6 +749,10 @@ file = "config/ftbquests/quests/chapters/ae.snbt"
 hash = "e39c416b8a1c6b545929e7e9be77d9eb05028a436c33def17ec1aa1ca1d669d4"
 
 [[files]]
+file = "config/ftbquests/quests/chapters/backpack.snbt"
+hash = "9588c8b5ed6d3f639d47162901c7662a43c1705d9b667afe7aecc10dce8581a3"
+
+[[files]]
 file = "config/ftbquests/quests/chapters/chemical.snbt"
 hash = "26e16026ea4af25319b6d7e004c1c6a4712186ff9a7152b41f93a798c6fec2b0"
 
@@ -763,10 +767,6 @@ hash = "6c7b562266ad86ff35f3a77644821f18a12804339979ac79261f25b46f63d44b"
 [[files]]
 file = "config/ftbquests/quests/chapters/food.snbt"
 hash = "90ef17312e54b0b410ff5a15ec732b9a13d2436ca458ccebb8ac05999f6c895e"
-
-[[files]]
-file = "config/ftbquests/quests/chapters/fork-modernage.snbt"
-hash = "64223a512214fa4fb3b9fd4fc71ada3356e614335c7064e47cc2de570365d20b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/generator.snbt"
@@ -1082,15 +1082,15 @@ hash = "7171e798bae19a8b7ebff453a396567dad9aaea33bf3d6201aa38dd47b8afcd0"
 
 [[files]]
 file = "config/openloader/resources/quests/assets/gto/lang/en_us.json"
-hash = "a1168bae3fa95426cc811004a830055e8df854c42c7db207fe89ccbe164ccbd6"
+hash = "c9e89d646869542653934c53d5949be447a8c51cc42494dfca90482278c0a63f"
 
 [[files]]
 file = "config/openloader/resources/quests/assets/gto/lang/zh_cn.json"
-hash = "8ce56a71d613c8322813da2f098cfa54035d8b4fdb42886d60db4f8bdeacbba4"
+hash = "aa705ffd2842df8f7c693a5e2b2f819758ffce3d539c1d502cfce63636387866"
 
 [[files]]
 file = "config/openloader/resources/quests/assets/gto/lang/zh_tw.json"
-hash = "bf2d62e7e064bd4b3689e21e54a814ecb171425c138e081c71f31b9922a94467"
+hash = "65469bc21a6b777cc209b51ec9f9a8a0c71ee94ebf55be16a5e50ae840ec18f0"
 
 [[files]]
 file = "config/openloader/resources/quests/pack.mcmeta"
