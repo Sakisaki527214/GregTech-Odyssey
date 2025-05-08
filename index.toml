@@ -493,12 +493,20 @@ file = "config/carryon-common.toml"
 hash = "67c08f3e2971657fe9a92f4d1da0b4e5584c75d20ad5be3e1ece9b3cc2bc5b3d"
 
 [[files]]
+file = "config/champions-client.toml"
+hash = "412d0cdf3b19fcafae50fd38b3be5b9403d14549f21f425755052bbf48871a60"
+
+[[files]]
+file = "config/champions-common.toml"
+hash = "54ab2039eafa033b0553b45430b0d80ce54c203ca65b93d06ee3b7d331c62a19"
+
+[[files]]
 file = "config/chisel.json"
 hash = "f30375505d2b59c55c43f5157f53c97251c1ad40aa64dd210a38b80c9cdd7d0b"
 
 [[files]]
 file = "config/chloride-client.json"
-hash = "876f62571ceb1313eb79fd7f0de14cc19c9bd36c074ac7c52f92a1fd8f11dc0e"
+hash = "58a6b954e6e3b3fa69994e6dda66133530c4236e0bfd62b72c2d09c179c699c7"
 
 [[files]]
 file = "config/clienttweaks-common.toml"
@@ -653,28 +661,12 @@ file = "config/endrem.toml"
 hash = "e8b023a7ff16b2e42c0021a51f87b1bcb036925bc71b6a4ef233b5289f960e58"
 
 [[files]]
-file = "config/enhancedai/Mobs/Break Anger/break_anger_config.json"
-hash = "1ef8dc64a4aead2829923f15a78907e94b33ffb70471416fac0b50c10b14165c"
-
-[[files]]
-file = "config/enhancedai/Mobs/Flee/custom_flee.json"
-hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-
-[[files]]
-file = "config/enhancedai/Mobs/Targeting/custom_hostile.json"
-hash = "4180b3139d23a32ac8a597b07a613f240a34a82c5040fbbf4d934b996ab29840"
-
-[[files]]
-file = "config/enhancedai/common.toml"
-hash = "60877428f55eda67b06a1be32c1d8d4b76af96d46a220a6ec635965a15498a45"
-
-[[files]]
 file = "config/euphoria_patcher.properties"
 hash = "7d0bfba8907b0a95119a276acf5fb6377521bcdbf15aa9f9b99b7d8591c724bc"
 
 [[files]]
 file = "config/expatternprovider-common.toml"
-hash = "4471249eca739afba94f8ddf09cbd73616c7ded7b2845359544cf4eafe3e036f"
+hash = "ece7d0a3b023d2c511b992cc25da8e393971ff3933780856546db4434ef5c057"
 
 [[files]]
 file = "config/explorerscompass-client.toml"
@@ -750,7 +742,7 @@ hash = "e39c416b8a1c6b545929e7e9be77d9eb05028a436c33def17ec1aa1ca1d669d4"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/backpack.snbt"
-hash = "9588c8b5ed6d3f639d47162901c7662a43c1705d9b667afe7aecc10dce8581a3"
+hash = "1203d7427c1b7d0c1416a32bf83a368cda97541dcef27551fbc189c3e960caf7"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/chemical.snbt"
@@ -762,7 +754,7 @@ hash = "aa11d4a4be23f45f66286636f245320d3fccc62143b8e87faf5a2291df43652e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/ev.snbt"
-hash = "6c7b562266ad86ff35f3a77644821f18a12804339979ac79261f25b46f63d44b"
+hash = "fff8a17d0d0dce3326dcc8d31e2fa22b9cbdc4687e743e0c24d4f1466ab22880"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/food.snbt"
@@ -778,7 +770,7 @@ hash = "fef30ebfe5e1043a40cea3bdebf5b9460cced6563168771ab5a83258ad972f6a"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/hv.snbt"
-hash = "fc83366e4ca43e3bddcc136f037d8d59b0f0f449d88e6b1bb2f89f0c662d9ad1"
+hash = "38f62f23a01c26956f101f4d7a4e5d98c4667edc6da257cefa978a702eba6b6e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/immersive-aircraft.snbt"
@@ -794,11 +786,11 @@ hash = "b2ba33a19a8c48f70028bc6c4b6712610acbf3e23504a1bbfccc63c2d5dc02fc"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/lv.snbt"
-hash = "161177757fcb539a291e4911b90d613e7b04ef9e8fcf72c9044d5e378fe6cd5f"
+hash = "fbd4e0422dae23735e68a15f71c21156f50d2f3f23340a05425a081ce14de134"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/main-stoneage.snbt"
-hash = "b66d74d2c41d8fca337682fee33ca23ead8188d12bc919c812ce077cd34100fd"
+hash = "b1570bae3bff487f8b7bb8a8d9003613d1720bb2425cf60f1cf270e6483c820f"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/massive-manufacturing.snbt"
@@ -826,11 +818,11 @@ hash = "c1141277e4756a553b9c1033de883f309a0cf2d59b2589b5135096e40c60380a"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/steam.snbt"
-hash = "f29398612b9a66e4b5857cbd64c7093809fd0c965b701d14a3f79cbf45915d5f"
+hash = "100b9acc04fe3662cb3463aa506306b454693b412f5490a72c1e1799f2f7fea0"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/tips.snbt"
-hash = "6b35f53ef33f4ebc7d83e32f48b188f0007655d3fdb5e5340aabbe4fc8afd60b"
+hash = "a62d5e5d0e2d1cea7d3562ab6cbe2cb0608da3736e68a3da0c3b460033189496"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/uev.snbt"
@@ -846,7 +838,7 @@ hash = "650acd3c8e25149b33efb0fa1e43b188e2b6e1bcf082ab9086b6f6f0f6f9f314"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/ulv.snbt"
-hash = "9067064ba625bce52606350d80e2f380b49688e68cc7a53597d1b27742c9447a"
+hash = "e72b1346407c8be5618cdfac51c2e04fff7f8c35c2a560c5f6b68e3341277f59"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/util.snbt"
@@ -923,10 +915,6 @@ hash = "4ea89cbcab7bf1689b926569c79f1613d578cfdb7e2f0dbc4cc7b7519f23229d"
 [[files]]
 file = "config/immersive_aircraft.json"
 hash = "898347b99b3326ae0ce719a06351eb930b1a3567e4f3c22ba94f014f1e115a46"
-
-[[files]]
-file = "config/insanelib-common.toml"
-hash = "0cc7659d806fc27dc7156bedfe66f284a305ca8dfea9f7a3c6410b5e3cff5e61"
 
 [[files]]
 file = "config/inventoryessentials-common.toml"
@@ -1017,6 +1005,18 @@ file = "config/lithium.properties"
 hash = "e9f075db4db5be82c2bbc233219b17dd7cefa4309fb368a2ec48de6f190f382c"
 
 [[files]]
+file = "config/lootbag-common.toml"
+hash = "6fe87c5d8fe3ad638401e20bfbf8499a9c49f3ddec8051ff281588d6c8764555"
+
+[[files]]
+file = "config/lootr-client.toml"
+hash = "865c7ea2d2ba65ad63fc5db52b0f5ca59eb34f4f393b3df950df1e3204bbefa2"
+
+[[files]]
+file = "config/lootr-common.toml"
+hash = "a88285c2412deb8e40ae6cf98f01f2aa308fc60a6eb71764222bb9eb6b6bffe3"
+
+[[files]]
 file = "config/mae2-common.toml"
 hash = "ff36b268bc1d0fdf911c5179c286a52b1751528caefeacfb81c369d6d396a2c3"
 
@@ -1082,15 +1082,15 @@ hash = "7171e798bae19a8b7ebff453a396567dad9aaea33bf3d6201aa38dd47b8afcd0"
 
 [[files]]
 file = "config/openloader/resources/quests/assets/gto/lang/en_us.json"
-hash = "c9e89d646869542653934c53d5949be447a8c51cc42494dfca90482278c0a63f"
+hash = "0a15451412f323a631fb2d3c5e6e7341461fff3cc58ba3322c7de824e6a7a5e4"
 
 [[files]]
 file = "config/openloader/resources/quests/assets/gto/lang/zh_cn.json"
-hash = "aa705ffd2842df8f7c693a5e2b2f819758ffce3d539c1d502cfce63636387866"
+hash = "18e6b1aab9b06240eed617beb6538eaa8fea028cb54ae93a8d70e91a7c75d01a"
 
 [[files]]
 file = "config/openloader/resources/quests/assets/gto/lang/zh_tw.json"
-hash = "65469bc21a6b777cc209b51ec9f9a8a0c71ee94ebf55be16a5e50ae840ec18f0"
+hash = "530262e63e18adfe087d4813d5d32b2f7a88f7a9f151e0c2c96d8326818ad6e2"
 
 [[files]]
 file = "config/openloader/resources/quests/pack.mcmeta"
@@ -1217,6 +1217,14 @@ file = "config/xaeroworldmap.txt"
 hash = "827a998b5471b9e444aff2cf9b5e37c2e1695e93bd80fdfb21b2c1c2b11d48d5"
 
 [[files]]
+file = "defaultconfigs/champions-entities.toml"
+hash = "ddfd4d55b4ce86dd680f809a24a05442e5b131a44e3999683809d9565cb1f91d"
+
+[[files]]
+file = "defaultconfigs/champions-ranks.toml"
+hash = "c330c36aec02467987e0caadea141bdda1fb534c11b11be4ce8d4441fc480f58"
+
+[[files]]
 file = "defaultconfigs/ftbessentials-server.snbt"
 hash = "7a87f311bb4d302f6ad97daf733610a468dbef75908260dccd0da0f3131f526c"
 
@@ -1239,6 +1247,10 @@ hash = "0fc56445c3144b0c0d2c42c538dae855a6eaee6e7b9d6ef0877db0c069628a22"
 [[files]]
 file = "defaultconfigs/ftbxmodcompat/ftbxmodcompat.snbt"
 hash = "a16630bdc2fbecab73b939d2adb903481b3c1f84bf1bd02cc2bed1d1189f9770"
+
+[[files]]
+file = "defaultconfigs/openpartiesandclaims-default-player-config.toml"
+hash = "544c2745c12e25edcb9c3f610898365f3f15cc202ea7a5de84a463b5440a26d8"
 
 [[files]]
 file = "defaultconfigs/openpartiesandclaims-server.toml"
@@ -1320,7 +1332,7 @@ metafile = true
 
 [[files]]
 file = "mods/applied-energistics-2.pw.toml"
-hash = "4383fe11541a7fdfd81993e1571bde1cbc81f0821fa0ed0aac86886fa246218f"
+hash = "327edd6ae8f64b2026eeab77c4c9e59a14a0be25b0ef24f6521a3d5446d0b3fb"
 metafile = true
 
 [[files]]
@@ -1384,13 +1396,18 @@ hash = "9f3b027d3254c1bcc6fcce7864c4c725124c2c10c58d1919956d7b042b9748a5"
 metafile = true
 
 [[files]]
+file = "mods/champions-unofficial.pw.toml"
+hash = "8ba8cbb5022b236f547efb1455f7a2517db88e84fe533f80d088f4c4e977c29a"
+metafile = true
+
+[[files]]
 file = "mods/chisel-reborn.pw.toml"
 hash = "31c82d3e61be27a9539985ced36f3fea88414956cc03b470020827453182237b"
 metafile = true
 
 [[files]]
 file = "mods/chloride-mod.pw.toml"
-hash = "94df0c27cfd49532ada9b9d62777f300d480d563e57a874e413d6c21fdd6a9c0"
+hash = "81171a4b08141222856eba06bb571eb415acb56153566fe8b29afd581db2d8fd"
 metafile = true
 
 [[files]]
@@ -1539,18 +1556,13 @@ hash = "a493627793300933efdc88070b3090b93c74a9649f8c4fdeb71c3e8965c0a726"
 metafile = true
 
 [[files]]
-file = "mods/enhanced-ai.pw.toml"
-hash = "401e3f5b5b6113e598bf1f7126d08505d58ea56e068a45760868c3c4419e9b78"
-metafile = true
-
-[[files]]
 file = "mods/euphoria-patches.pw.toml"
 hash = "fae27203738ed724746d1173e846d58b647fd794204d011df46be284581a3e3b"
 metafile = true
 
 [[files]]
 file = "mods/ex-pattern-provider.pw.toml"
-hash = "e0d5fc7090d303c4176dcf18d7d76012c0a11040848fcb5440bba8fd52fcdfb4"
+hash = "b542d8694713f58f2da99713ce7c712bddc194ed9ac936f9e56037a5265995f6"
 metafile = true
 
 [[files]]
@@ -1695,11 +1707,11 @@ metafile = true
 
 [[files]]
 file = "mods/gtmthings-1.4.4.jar"
-hash = "71d3bd11b6392a6892e585649b36a3c49d3a89070c289d1d8f23b0d32aeaee91"
+hash = "26ab6add9366bb62f67d3c828a71b4604fac28e609070a7070e70d48282dfae4"
 
 [[files]]
-file = "mods/gtocore-0.1.2.jar"
-hash = "2a67a54489ecf300b201855c3f5812c93b8d3b7dac1afb10898c3ce4c6d74336"
+file = "mods/gtocore-0.1.3.jar"
+hash = "c819d3cb453799bd5696c1e87ce0f5f0ec0915e452c80af51f8d43cc75117429"
 
 [[files]]
 file = "mods/guideme.pw.toml"
@@ -1719,11 +1731,6 @@ metafile = true
 [[files]]
 file = "mods/immersive-aircraft.pw.toml"
 hash = "46e330c7b361a619a483adb8381d811e88846106071fb9f57c31d313b9361546"
-metafile = true
-
-[[files]]
-file = "mods/insanelib.pw.toml"
-hash = "815b4191dd612bc6d1b1b714c507ba4e0884cadff7355b799b5dad39a6e9574a"
 metafile = true
 
 [[files]]
@@ -1774,6 +1781,16 @@ metafile = true
 [[files]]
 file = "mods/libx.pw.toml"
 hash = "47920e8acfee11346d53419c38ad5101ac519eaf466b887defd7767efd70d215"
+metafile = true
+
+[[files]]
+file = "mods/loot-bag.pw.toml"
+hash = "426b926baa24e3870dc6b4bb4bbe1a7864aa453072775c6348a7d76519a17fb0"
+metafile = true
+
+[[files]]
+file = "mods/lootr.pw.toml"
+hash = "a3fc2800be76f3406961d01ab4ab6805b4ca5e269f53d3cb2d58ea39d6afa9f2"
 metafile = true
 
 [[files]]
