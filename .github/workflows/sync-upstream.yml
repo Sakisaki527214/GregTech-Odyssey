@@ -95,12 +95,44 @@ jobs:
           if git merge --no-ff sync -m "Sync upstream changes"; then
             git push origin main
           else
-            git merge --abort
+            echo "MERGE_FAILED=true" >> $GITHUB_ENV
             exit 1
           fi
 
+      - name: Check conflict files
+        if: env.MERGE_FAILED == 'true'
+        id: check_conflict_files
+        run: |
+          conflict_files=$(git diff --name-only --diff-filter=U | xargs)
+          echo "Conflict files: $conflict_files"
+          
+          if [ "$conflict_files" = "pack.toml" ]; then
+            echo "ONLY_PACK_TOML=true" >> $GITHUB_ENV
+          else
+            echo "ONLY_PACK_TOML=false" >> $GITHUB_ENV
+          fi
+
+      - name: Resolve pack.toml conflict
+        if: env.ONLY_PACK_TOML == 'true'
+        run: |
+          git merge --abort
+          
+          git checkout ${{ env.SYNC_BRANCH }}
+          
+          chmod +x .github/packwiz
+          .github/packwiz refresh
+          
+          git checkout main
+          git checkout ${{ env.SYNC_BRANCH }} -- pack.toml
+          git add pack.toml
+          git commit -m "Force synchronization of pack.toml (from Refresh process)"
+          git push origin main
+
       - name: Create conflict resolution PR
-        if: steps.check_conflict_branches.outputs.exists == 'false' && steps.merge_attempt.outcome == 'failure'
+        if: |
+          env.ONLY_PACK_TOML == 'false' &&
+          steps.check_conflict_branches.outputs.exists == 'false' &&
+          env.MERGE_FAILED == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
