@@ -1,14 +1,12 @@
 name: "Refresh"
 on:
-  push:
   pull_request:
     types: [closed]
     branches: [main]
     paths:
       - 'mods/**'
       - 'config/**'
-  workflow_dispatch:
-
+      
 jobs:
   generate:
     runs-on: ubuntu-latest
