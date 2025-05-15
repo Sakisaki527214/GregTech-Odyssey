@@ -120,7 +120,7 @@ jobs:
           git checkout ${{ env.SYNC_BRANCH }}
           
           chmod +x .github/packwiz
-          .github/packwiz refresh
+          .github/packwiz refresh || exit 1
           
           git checkout main
           git checkout ${{ env.SYNC_BRANCH }} -- pack.toml
