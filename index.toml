@@ -998,7 +998,7 @@ hash = "07052785400b48d3757dbbcfff0b50899fbaed1ac54ea09bc9024ea7f73b7644"
 
 [[files]]
 file = "config/jei/recipe-category-sort-order.ini"
-hash = "b910db6141de2f0c7184ad58be5e7b1cdbb7a584fd20c002696926cea226dc97"
+hash = "11e39238c704d4ae4feb9cd8d19f7ab976aae2755d061fb1dcad44118fa1b207"
 
 [[files]]
 file = "config/jeresources-common.toml"
@@ -1058,7 +1058,7 @@ hash = "d40a0510a5eaf56e3c48e881348d7d826c5a1f61aa29b69cf0fc33dd96d6fdcd"
 
 [[files]]
 file = "config/modernfix-mixins.properties"
-hash = "b0d3862b894200a627eb58049d335b9689e4d27b8afa049f92f3a2a5cf51ba0f"
+hash = "d915c06028c0d53dfd44b298dee3ada0d8e065c83ec790ba2ef6ec20edc94879"
 
 [[files]]
 file = "config/mythicbotany-client.toml"
@@ -1158,7 +1158,7 @@ hash = "f37500e8d3440dc1da3307f0fbbb3a0c181794c844efab9cfeb16564b4f22f3d"
 
 [[files]]
 file = "config/simplebackups-common.toml"
-hash = "a595caaf8ef7439608a3a1bc0b483e176c221511364fa0c11d1afa5108ead394"
+hash = "a3b0ae9679ca829b5e7aa0857c18b335c5330e3e0596d088922e43293ee33480"
 
 [[files]]
 file = "config/solcarrot-client.toml"
@@ -1723,12 +1723,12 @@ hash = "477c0165ac7a3d521157a8fa69fd5335804383fc04459e0ee7a2ce799a08c568"
 metafile = true
 
 [[files]]
-file = "mods/gtmthings-1.4.4.jar"
-hash = "0351d1a56c3c7413e6aef613e9c0544ae0624aab72c4dc8d1485bc3bf3004f03"
+file = "mods/gtmthings-1.4.6.jar"
+hash = "bb200284ed2ababd7df753fd7e476779a6e7f299a14cc883d7aa35e760aff77e"
 
 [[files]]
-file = "mods/gtocore-0.1.7.jar"
-hash = "adedf2c367da03781c3ef6b4a4d47ca15e9b7832e6d9b44aedb7b845c0b5e2db"
+file = "mods/gtocore-0.1.8.jar"
+hash = "a39dac86b37da0da7c782f0ebfba056ccc743c71fefa2b8e940c43c17a812bf8"
 
 [[files]]
 file = "mods/guideme.pw.toml"
@@ -1832,7 +1832,7 @@ metafile = true
 
 [[files]]
 file = "mods/modernfix.pw.toml"
-hash = "532742fd8bec17663d0f7d8d687aeed2dd896801b67e283db473a4f06b2ca2a2"
+hash = "1646b216d49b1f39f36275cd3044c736cc48135c62d53b563646b4f88d29d776"
 metafile = true
 
 [[files]]
@@ -1972,17 +1972,17 @@ metafile = true
 
 [[files]]
 file = "mods/simple-backups.pw.toml"
-hash = "7ae23612abc6bf86cc256a71972a0b7d11be7042e8f3d8cc833e73796be405d0"
+hash = "2cd1c7566e3301ff3ebcce905dcf92ee10d021c1c731610e3cb9990cdf0b3cf4"
 metafile = true
 
 [[files]]
 file = "mods/sophisticated-backpacks.pw.toml"
-hash = "eb437e3ab2c9201cd7b7e77dd9f7df13fa9a8ebe28fc0d593a9d73b2af5e9539"
+hash = "3466500d3d5e0582ef44b24b3ae5596790b430b9a7ee784d1a6a0f48105c4598"
 metafile = true
 
 [[files]]
 file = "mods/sophisticated-core.pw.toml"
-hash = "1df55012de4f2a46938adbd3392333623e011ee50fe8f92be6e5956828bd9495"
+hash = "ad786c4347011d61febf00111288c9862c8d98eb3bd5b3b24a7525462a9242a3"
 metafile = true
 
 [[files]]
@@ -2027,7 +2027,7 @@ metafile = true
 
 [[files]]
 file = "mods/txnilib.pw.toml"
-hash = "f79b4d02590e836c41c701636f437ab1b34a20f070f927b67c92cf2c595bdaaa"
+hash = "7149b1beafef2ce275da37dd5ca2e12f5527ad979420630ecdef5bcabd4fef32"
 metafile = true
 
 [[files]]
@@ -2047,7 +2047,7 @@ metafile = true
 
 [[files]]
 file = "mods/xaeros-world-map.pw.toml"
-hash = "239a06555fb7db48b00db603811d24be180215256b51219d5cb04beafbf775b5"
+hash = "fb4358298d2a0733d2786e1c532d96babb9dd3a376c465fb7a51f9452e902a4c"
 metafile = true
 
 [[files]]
