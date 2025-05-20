@@ -138,11 +138,12 @@ jobs:
         run: |
           git merge --abort || true
           git reset --hard HEAD
-          git clean -fd
+          git clean -fdx
 
-          conflict_branch="conflict-fix-${{ github.run_id }}"
-          git checkout -b $conflict_branch
-          git push origin $conflict_branch
+          git fetch origin ${{ env.SYNC_BRANCH }}
+          git checkout -B conflict-fix-${{ github.run_id }} origin/${{ env.SYNC_BRANCH }}
+          git push origin conflict-fix-${{ github.run_id }}
+          
           curl -X POST \
             -H "Authorization: token $GH_TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
@@ -150,6 +151,6 @@ jobs:
             -d "{
               \"title\": \"需要解决合并冲突： sync → main\",
               \"body\": \"\",
-              \"head\": \"$conflict_branch\",
+              \"head\": \"conflict-fix-${{ github.run_id }}\",
               \"base\": \"main\"
             }"
