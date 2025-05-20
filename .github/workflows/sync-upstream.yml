@@ -136,8 +136,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git merge --abort || true
+          git reset --hard HEAD
+          git clean -fd
+
           conflict_branch="conflict-fix-${{ github.run_id }}"
-          git checkout -b $conflict_branch origin/sync
+          git checkout -b $conflict_branch
           git push origin $conflict_branch
           curl -X POST \
             -H "Authorization: token $GH_TOKEN" \
