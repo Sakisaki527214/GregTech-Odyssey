@@ -3,20 +3,27 @@ on:
   pull_request:
     types: [closed]
     branches: [main]
+  push:
+    branches: [main]
     paths:
       - 'mods/**'
       - 'config/**'
   workflow_dispatch:
-    branches: [main]
       
 jobs:
   generate:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    if: |
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true) ||
+      (github.event_name == 'push') ||
+      (github.event_name == 'workflow_dispatch')
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v2
